@@ -39,10 +39,10 @@ $(BIN_DIR):
 $(SRC_DIR):
 	mkdir $(SRC_DIR)
 
-$(BASE_LIB_DIR):
+$(BASE_LIB_DIR)/Makefile:
 	git submodule update --init --recursive
 
-library: | $(BASE_LIB_DIR)
+library: | $(BASE_LIB_DIR)/Makefile
 	cd midi_library && make
 
 $(INCLUDE_DIR): library
